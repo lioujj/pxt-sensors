@@ -42,11 +42,11 @@ namespace sensors {
     }
 
 
-    //% blockId=dht11_set_pin block="DHT11 set pin %pin_arg|type %dht_result"
+    //% blockId=dht11_set_pin block="DHT11 set pin %pinarg|type %dhtResult"
     export function set_DHT_pin(pin_arg: DigitalPin, dht_result: Dht11Result): number {
         dht11_pin = pin_arg;
 
-        switch (dht_result) {
+        switch (dhtResult) {
             case Dht11Result.temperature: return (dht11_read() & 0x0000ff00) >> 8;
             case Dht11Result.humidity: return dht11_read() >> 24;
         }
