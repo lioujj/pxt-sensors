@@ -1,4 +1,5 @@
 {
     "sensors|block": "感應器",
-    "sensors.ping|block": "超音波感應器 trig腳位 %trig|echo腳位 %echo|距離單位 %unit"
+    "sensors.ping|block": "超音波感應器 trig腳位 %trig|echo腳位 %echo|距離單位 %unit",
+    "sensors.PingUnit.Centimeters|block":"公分"
 }
