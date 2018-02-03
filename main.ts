@@ -46,6 +46,7 @@ namespace sensors {
         switch (dhtResult) {
             case Dht11Result.temperature: return (dht11_read() & 0x0000ff00) >> 8;
             case Dht11Result.humidity: return dht11_read() >> 24;
+            default: return 0;
         }
     }
 
