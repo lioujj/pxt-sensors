@@ -2,11 +2,11 @@
 namespace sensors {
 
     export enum PingUnit {
-        //% blockId=unit_cm block="cm"
+        //% block="cm"
         Centimeters,
-        //% blockId=unit_inch block="inches"
+        //% block="inches"
         Inches,
-        //% blockId=unit_us block="μs"
+        //% block="μs"
         MicroSeconds
     }
 
