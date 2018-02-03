@@ -40,7 +40,7 @@ namespace sensors {
         humidity
     }
 
-    //% block="DHT11 set pin %pinarg" blockId=dht11_set_pin
+    //% block="DHT11 set pin %pinarg|type %dhtResult" blockId=dht11_set_pin
     export function set_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
         dht11_pin = pin_arg;
     }
