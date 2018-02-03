@@ -2,14 +2,13 @@
 namespace sensors {
 
     let dht11_pin = DigitalPin.P0;
-    function signal_dht11(dht11_pin: DigitalPin): void {
-        pins.digitalWritePin(dht11_pin, 0);
+    function signal_dht11(pin: DigitalPin): void {
+        pins.digitalWritePin(pin, 0);
         basic.pause(18);
         let i = pins.digitalReadPin(pin);
-        pins.setPull(dht11_pin, PinPullMode.PullUp);
-
+        pins.setPull(pin, PinPullMode.PullUp);
     }
-    
+
     export enum PingUnit {
         //% block="cm"
         Centimeters,
