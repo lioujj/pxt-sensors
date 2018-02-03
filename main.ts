@@ -40,6 +40,17 @@ namespace sensors {
         humidity
     }
 
+    //% blockId=set_DHT_pin block="DHT11 set pin %pin_arg|type %dhtResult"
+    export function set_DHT_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
+        dht11_pin = pin_arg;
+
+        switch (dhtResult) {
+            case Dht11Result.temperature: return (dht11_read() & 0x0000ff00) >> 8;
+            case Dht11Result.humidity: return dht11_read() >> 24;
+        }
+    }
+
+
     export enum PingUnit {
         //% block="cm"
         Centimeters,
