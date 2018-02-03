@@ -42,7 +42,7 @@ namespace sensors {
     }
 
 
-    //% blockId=dht11_set_pin block="DHT11 set pin %pin_arg"|type %dht_result"
+    //% blockId=dht11_set_pin block="DHT11 set pin %pin_arg|type %dht_result"
     export function set_DHT_pin(pin_arg: DigitalPin, dht_result: Dht11Result): number {
         dht11_pin = pin_arg;
 
