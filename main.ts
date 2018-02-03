@@ -33,6 +33,24 @@ namespace sensors {
         return value;
     }
 
+    export enum Dht11Result {
+        //% block="temperature"
+        temperature,
+        //% block="humidity"
+        humidity
+    }
+
+
+    //% blockId=dht11_set_pin block="DHT11 set pin %pin_arg|type %dhtResult"
+    export function set_DHT_pin(pin_arg: DigitalPin, dht_result: Dht11Result): number {
+        dht11_pin = pin_arg;
+
+        switch (dhtResult) {
+            case Dht11Result.temperature: return (dht11_read() & 0x0000ff00) >> 8;
+            case Dht11Result.humidity: return dht11_read() >> 24;
+        }
+    }
+
 
     export enum PingUnit {
         //% block="cm"
