@@ -43,7 +43,10 @@ namespace sensors {
     //% block="DHT11 set pin %pinarg|type %dhtResult" blockId=dht11_set_pin
     export function set_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
         dht11_pin = pin_arg;
-        return 0;
+        switch (dhtResult) {
+            case Dht11Result.temperature: return (dht11_read() & 0x0000ff00) >> 8;
+            case Dht11Result.humidity: return dht11_read() >> 24;
+        }
     }
 
     export enum PingUnit {
