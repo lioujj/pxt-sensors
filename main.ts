@@ -63,6 +63,10 @@ namespace sensors {
     }
 
     //% blockId=sonar_ping block="ultrasonic trig %trig|echo %echo|unit %unit"
+    //% trig.fieldEditor="gridpicker" trig.fieldOptions.columns=4
+    //% trig.fieldOptions.tooltips="false" trig.fieldOptions.width="300"
+    //% echo.fieldEditor="gridpicker" echo.fieldOptions.columns=4
+    //% echo.fieldOptions.tooltips="false" echo.fieldOptions.width="300"
     export function ping(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
