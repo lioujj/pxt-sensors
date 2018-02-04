@@ -5,7 +5,7 @@
 ## License
 
 * MIT
-* The code of ultrasonic was coded by Microsoft 
+* The code of ultrasonic was coded by Microsoft  
 https://github.com/Microsoft/pxt-sonar
 
 * The code of DHT11 was coded by MonadnockSystems  
