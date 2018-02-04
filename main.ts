@@ -41,10 +41,10 @@ namespace sensors {
         humidity
     }
 
-    //% blockId=set_DHT11_pin block="DHT11 set pin %pin_arg|get %dhtResult" blockExternalInputs=true
+    //% blockId=get_DHT11_value block="DHT11 set pin %pin_arg|get %dhtResult" blockExternalInputs=true
     //% pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=4
     //% pin_arg.fieldOptions.tooltips="false" pin_arg.fieldOptions.width="300"
-    export function set_DHT11_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
+    export function get_DHT11_value(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
         switch (dhtResult) {
             case Dht11Result.Celsius: return (dht11_read(pin_arg) & 0x0000ff00) >> 8;
             case Dht11Result.Fahrenheit: return ((dht11_read(pin_arg) & 0x0000ff00) >> 8)*9/5+32;
@@ -62,12 +62,12 @@ namespace sensors {
         MicroSeconds
     }
 
-    //% blockId=sonar_ping block="ultrasonic trig %trig|echo %echo|get distance %unit"
+    //% blockId=sensor_ping block="ultrasonic trig %trig|echo %echo|get distance %unit"
     //% trig.fieldEditor="gridpicker" trig.fieldOptions.columns=4
     //% trig.fieldOptions.tooltips="false" trig.fieldOptions.width="300"
     //% echo.fieldEditor="gridpicker" echo.fieldOptions.columns=4
     //% echo.fieldOptions.tooltips="false" echo.fieldOptions.width="300"
-    export function ping(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
+    export function sensor_ping(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
