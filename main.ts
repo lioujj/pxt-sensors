@@ -41,7 +41,7 @@ namespace sensors {
         humidity
     }
 
-    //% blockId=set_DHT11_pin block="DHT11 set pin %pin_arg|type %dhtResult" blockExternalInputs=true
+    //% blockId=set_DHT11_pin block="DHT11 set pin %pin_arg|get %dhtResult" blockExternalInputs=true
     //% pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=4
     //% pin_arg.fieldOptions.tooltips="false" pin_arg.fieldOptions.width="300"
     export function set_DHT11_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
@@ -62,7 +62,7 @@ namespace sensors {
         MicroSeconds
     }
 
-    //% blockId=sonar_ping block="ultrasonic trig %trig|echo %echo|unit %unit"
+    //% blockId=sonar_ping block="ultrasonic trig %trig|echo %echo|get distance %unit"
     //% trig.fieldEditor="gridpicker" trig.fieldOptions.columns=4
     //% trig.fieldOptions.tooltips="false" trig.fieldOptions.width="300"
     //% echo.fieldEditor="gridpicker" echo.fieldOptions.columns=4
