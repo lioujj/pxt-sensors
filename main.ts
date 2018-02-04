@@ -33,16 +33,16 @@ namespace sensors {
     }
 
     export enum Dht11Result {
-        //% block="temperature"
-        temperature,
+        //% block="Celsius"
+        Celsius,
         //% block="humidity"
         humidity
     }
 
-    //% block="DHT11 set pin %pin_arg|type %dhtResult" blockId=dht11_set_pin
-    export function set_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
+    //% blockId=set_DHT11_pin block="DHT11 set pin %pin_arg|return type %dhtResult" blockExternalInputs=true
+    export function set_DHT11_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
         switch (dhtResult) {
-            case Dht11Result.temperature: return (dht11_read(pin_arg) & 0x0000ff00) >> 8;
+            case Dht11Result.Celsius: return (dht11_read(pin_arg) & 0x0000ff00) >> 8;
             case Dht11Result.humidity: return dht11_read(pin_arg) >> 24;
             default: return 0;
         }
