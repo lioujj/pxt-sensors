@@ -42,7 +42,8 @@ namespace sensors {
     }
 
     //% blockId=set_DHT11_pin block="DHT11 set pin %pin_arg|type %dhtResult" blockExternalInputs=true
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% pin_arg.fieldEditor="gridpicker" pin_arg.fieldOptions.columns=4
+    //% pin_arg.fieldOptions.tooltips="false" pin_arg.fieldOptions.width="300"
     export function set_DHT11_pin(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
         switch (dhtResult) {
             case Dht11Result.Celsius: return (dht11_read(pin_arg) & 0x0000ff00) >> 8;
