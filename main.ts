@@ -47,7 +47,7 @@ namespace sensors {
     export function get_DHT11_value(pin_arg: DigitalPin, dhtResult: Dht11Result): number {
         switch (dhtResult) {
             case Dht11Result.Celsius: return (dht11_read(pin_arg) & 0x0000ff00) >> 8;
-            case Dht11Result.Fahrenheit: return ((dht11_read(pin_arg) & 0x0000ff00) >> 8)*9/5+32;
+            case Dht11Result.Fahrenheit: return ((dht11_read(pin_arg) & 0x0000ff00) >> 8) * 9 / 5 + 32;
             case Dht11Result.humidity: return dht11_read(pin_arg) >> 24;
             default: return 0;
         }
@@ -82,7 +82,20 @@ namespace sensors {
         switch (unit) {
             case PingUnit.Centimeters: return d / 58;
             case PingUnit.Inches: return d / 148;
-            default: return d ;
+            default: return d;
         }
+    }
+    //% blockId=RGBLight block="RGB LED set red pin %RedPin|red value(0~255) %RedValue|green pin %GreenPin|green value(0~255) %GreenValue|blue pin %BluePin|blue value(0~255) %BlueValue" blockExternalInputs=false
+    //% RedValue.min=0 RedValue.max=255 GreenValue.min=0 GreenValue.max=255 BlueValue.min=0 BlueValue.max=255
+    //% RedPin.fieldEditor="gridpicker" RedPin.fieldOptions.columns=4
+    //% RedPin.fieldOptions.tooltips="false" RedPin.fieldOptions.width="300"
+    //% GreenPin.fieldEditor="gridpicker" GreenPin.fieldOptions.columns=4
+    //% GreenPin.fieldOptions.tooltips="false" GreenPin.fieldOptions.width="300"
+    //% BluePin.fieldEditor="gridpicker" BluePin.fieldOptions.columns=4
+    //% BluePin.fieldOptions.tooltips="false" BluePin.fieldOptions.width="300"
+    export function RGBLight(RedPin: AnalogPin, RedValue: number, GreenPin: AnalogPin, GreenValue: number, BluePin: AnalogPin, BlueValue: number): void {
+        pins.analogWritePin(RedPin, pins.map(RedValue, 0, 255, 0, 1023));
+        pins.analogWritePin(GreenPin, pins.map(GreenValue, 0, 255, 0, 1023));
+        pins.analogWritePin(BluePin, pins.map(BlueValue, 0, 255, 0, 1023));
     }
 }
