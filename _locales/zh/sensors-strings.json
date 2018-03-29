@@ -7,5 +7,6 @@
     "sensors.get_DHT11_value|block": "溫濕度感應器DHT11 腳位 %pin_arg|取得 %dhtResult",
     "sensors.Dht11Result.Celsius|block": "攝氏溫度",
     "sensors.Dht11Result.Fahrenheit|block": "華氏溫度",
-    "sensors.Dht11Result.humidity|block": "濕度"
+    "sensors.Dht11Result.humidity|block": "濕度",
+    "sensors.RGBLight|block": "RGB LED 設定 紅色腳位 %RedPin|紅色值(0~255) %RedValue|綠色腳位 %GreenPin|綠色值(0~255) %GreenValue|藍色腳位 %BluePin|藍色值(0~255) %BlueValue"
 }
