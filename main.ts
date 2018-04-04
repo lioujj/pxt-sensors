@@ -85,7 +85,7 @@ namespace sensors {
             default: return d;
         }
     }
-    //% blockId=RGBLight block="RGB LED set red pin %RedPin|red value(0~255) %RedValue|green pin %GreenPin|green value(0~255) %GreenValue|blue pin %BluePin|blue value(0~255) %BlueValue" blockExternalInputs=false
+    //% blockId=RGBLight block="common cathode RGB set red pin %RedPin|green pin %GreenPin|blue pin %BluePin|value of red(0~255) %RedValue|value of green(0~255) %GreenValue|value of blue(0~255) %BlueValue" blockExternalInputs=false
     //% RedValue.min=0 RedValue.max=255 GreenValue.min=0 GreenValue.max=255 BlueValue.min=0 BlueValue.max=255
     //% RedPin.fieldEditor="gridpicker" RedPin.fieldOptions.columns=4
     //% RedPin.fieldOptions.tooltips="false" RedPin.fieldOptions.width="300"
@@ -93,7 +93,7 @@ namespace sensors {
     //% GreenPin.fieldOptions.tooltips="false" GreenPin.fieldOptions.width="300"
     //% BluePin.fieldEditor="gridpicker" BluePin.fieldOptions.columns=4
     //% BluePin.fieldOptions.tooltips="false" BluePin.fieldOptions.width="300"
-    export function RGBLight(RedPin: AnalogPin, RedValue: number, GreenPin: AnalogPin, GreenValue: number, BluePin: AnalogPin, BlueValue: number): void {
+    export function RGBLight(RedPin: AnalogPin,GreenPin: AnalogPin, BluePin: AnalogPin, RedValue: number,GreenValue: number,BlueValue: number): void {
         pins.analogWritePin(RedPin, pins.map(RedValue, 0, 255, 0, 1023));
         pins.analogWritePin(GreenPin, pins.map(GreenValue, 0, 255, 0, 1023));
         pins.analogWritePin(BluePin, pins.map(BlueValue, 0, 255, 0, 1023));
