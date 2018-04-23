@@ -1,6 +1,6 @@
 {
     "name": "sensors",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "這是專為micro:bit提供的感應器積木",
     "license": "MIT",
     "dependencies": {

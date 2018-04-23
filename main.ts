@@ -62,6 +62,13 @@ namespace sensors {
         MicroSeconds
     }
 
+    export enum LEDType {
+        //% block="cathode"
+        cathode,
+        //% block="anode"
+        anode
+    }
+
     //% blockId=sensor_ping block="ultrasonic trig %trig|echo %echo|get distance %unit"
     //% trig.fieldEditor="gridpicker" trig.fieldOptions.columns=4
     //% trig.fieldOptions.tooltips="false" trig.fieldOptions.width="300"
@@ -85,7 +92,7 @@ namespace sensors {
             default: return d;
         }
     }
-    //% blockId=RGBLight block="common cathode RGB set red pin %RedPin|green pin %GreenPin|blue pin %BluePin|value of red(0~255) %RedValue|value of green(0~255) %GreenValue|value of blue(0~255) %BlueValue" blockExternalInputs=false
+    //% blockId=RGBLight block="set RGB type:common %myType|red pin %RedPin|green pin %GreenPin|blue pin %BluePin|value of red(0~255) %RedValue|value of green(0~255) %GreenValue|value of blue(0~255) %BlueValue" blockExternalInputs=false
     //% RedValue.min=0 RedValue.max=255 GreenValue.min=0 GreenValue.max=255 BlueValue.min=0 BlueValue.max=255
     //% RedPin.fieldEditor="gridpicker" RedPin.fieldOptions.columns=4
     //% RedPin.fieldOptions.tooltips="false" RedPin.fieldOptions.width="300"
@@ -93,9 +100,9 @@ namespace sensors {
     //% GreenPin.fieldOptions.tooltips="false" GreenPin.fieldOptions.width="300"
     //% BluePin.fieldEditor="gridpicker" BluePin.fieldOptions.columns=4
     //% BluePin.fieldOptions.tooltips="false" BluePin.fieldOptions.width="300"
-    export function RGBLight(RedPin: AnalogPin,GreenPin: AnalogPin, BluePin: AnalogPin, RedValue: number,GreenValue: number,BlueValue: number): void {
-        pins.analogWritePin(RedPin, pins.map(RedValue, 0, 255, 0, 1023));
-        pins.analogWritePin(GreenPin, pins.map(GreenValue, 0, 255, 0, 1023));
-        pins.analogWritePin(BluePin, pins.map(BlueValue, 0, 255, 0, 1023));
+    export function RGBLight(myType: LEDType, RedPin: AnalogPin, GreenPin: AnalogPin, BluePin: AnalogPin, RedValue: number, GreenValue: number, BlueValue: number): void {
+        pins.analogWritePin(RedPin, pins.map((myType == LEDType.cathode ? RedValue : (255 - RedValue)), 0, 255, 0, 1023));
+        pins.analogWritePin(GreenPin, pins.map((myType == LEDType.cathode ? GreenValue : (255 - GreenValue)), 0, 255, 0, 1023));
+        pins.analogWritePin(BluePin, pins.map((myType == LEDType.cathode ? BlueValue : (255 - BlueValue)), 0, 255, 0, 1023));
     }
 }
