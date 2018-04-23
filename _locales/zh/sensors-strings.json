@@ -8,5 +8,7 @@
     "sensors.Dht11Result.Celsius|block": "攝氏溫度",
     "sensors.Dht11Result.Fahrenheit|block": "華氏溫度",
     "sensors.Dht11Result.humidity|block": "濕度",
-    "sensors.RGBLight|block": "共陰極RGB LED 設定 紅色腳位 %RedPin|綠色腳位 %GreenPin|藍色腳位 %BluePin|紅色值(0~255) %RedValue|綠色值(0~255) %GreenValue|藍色值(0~255) %BlueValue"
+    "sensors.LEDType.cathode|block": "共陰極",
+    "sensors.LEDType.anode|block": "共陽極",
+    "sensors.RGBLight|block": "RGB LED 設定型態：%myType|紅色腳位 %RedPin|綠色腳位 %GreenPin|藍色腳位 %BluePin|紅色值(0~255) %RedValue|綠色值(0~255) %GreenValue|藍色值(0~255) %BlueValue"
 }
