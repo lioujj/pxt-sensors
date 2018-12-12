@@ -84,7 +84,7 @@ namespace sensors {
         pins.digitalWritePin(trig, 0);
 
         // read pulse
-        const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 58);
+        const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 43);
 
         switch (unit) {
             case PingUnit.Centimeters: return d / 43;
